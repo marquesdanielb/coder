@@ -1,0 +1,61 @@
+<h1>Formulário</h1>
+
+<form action="http://localhost:3003" method="POST">
+    Nome:
+    <input type="text" name="nome">
+    Senha:
+    <input type="password" name="senha">
+    Nos conte sobre você:
+    <textarea name="bio" cols="30" rows="10"></textarea>
+    <div>
+        <input type="radio" name="tipo"> Admin
+        <input type="radio" name="tipo"> Regular
+        <input type="radio" name="tipo">Professional
+    </div>
+
+
+    <div>
+        Serviço ativo?
+        <input type="checkbox" name="ativo">
+    </div>
+    <br>
+
+    Qual o seu estado?
+    <select name="estado">
+        <option value="">Selecione:</option>
+        <option value="ba">Bahia</option>
+        <option value="rj">Rio de Janeiro</option>
+        <option value="ce">Ceará</option>
+    </select>
+    <br>
+    
+    E os seus interesses?
+    <select name="interesses" multiple size="5">
+        <option value="js">Javascript</option>
+        <option value="java">Java</option>
+        <option value="php">PHP</option>
+        <option value="python">Python</option>
+        <option value="go">Go</option>
+        <option value="c">C</option>
+    </select>
+    <br>
+
+    <button>Incluir</button>
+</form>
+
+<style>
+    input,
+    textarea {
+        display: block;
+        margin-top: 10px;
+    }
+
+    input[type=radio],
+    input[type=checkbox] {
+        display: inline;        
+    }
+
+    select {
+        display: block;
+    }
+</style>

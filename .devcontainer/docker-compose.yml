@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  app:
+    build: fpm
+    working_dir: /application
+    volumes:
+      - ../:/application
+
+  web:
+    image: nginx:1-alpine
+    volumes:
+      - ../:/usr/share/nginx/html:ro
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+     - 80:80
+    depends_on:
+      - app
+
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=coder
+    volumes:
+      - coder_db_data:/var/lib/mysql
+      - ../:/application
+
+volumes:
+  coder_db_data:
